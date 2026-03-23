@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,11 +12,12 @@ namespace TDDLearning.Core
         {
             CurrentPoint = startPoint;
         }
-        public Point Rotate(Point point, Direction direction) 
+        public Point Rotate(Point point, Direction direction) => (point, direction) switch
         {
-
-            if (point == Point.North && direction == Direction.Right) { return Point.East; }
-            return Point.South;
-        }
+            (Point.North, Direction.Right) => Point.East,
+            (Point.East, Direction.Right) => Point.South,
+            (Point.South, Direction.Right) => Point.West,
+            (Point.West, Direction.Right) => Point.North,
+        };
     }
 }
