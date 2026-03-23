@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TDDLearning.Core/TDDLearning.Core.csproj" />
+  <Project Path="TDDLearning.Tests/TDDLearning.Tests.csproj" />
+</Solution>
