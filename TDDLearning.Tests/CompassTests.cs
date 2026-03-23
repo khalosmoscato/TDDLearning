@@ -4,6 +4,7 @@ using Point = TDDLearning.Core.Point;
 
 namespace TDDLearning.Tests;
 
+[TestFixture]
 public class CompassTests
 {
     [SetUp]

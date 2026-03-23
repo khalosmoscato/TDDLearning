@@ -13,6 +13,8 @@ namespace TDDLearning.Core
         }
         public Point Rotate(Point point, Direction direction) 
         {
+
+            if (point == Point.North && direction == Direction.Right) { return Point.East; }
             return Point.South;
         }
     }
