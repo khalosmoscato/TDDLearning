@@ -18,6 +18,10 @@ namespace TDDLearning.Core
             (Point.East, Direction.Right) => Point.South,
             (Point.South, Direction.Right) => Point.West,
             (Point.West, Direction.Right) => Point.North,
+            (Point.North, Direction.Left) => Point.West,
+            (Point.East, Direction.Left) => Point.North,
+            (Point.South, Direction.Left) => Point.East,
+            (Point.West, Direction.Left) => Point.South,
         };
     }
 }

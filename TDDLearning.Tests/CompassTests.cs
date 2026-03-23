@@ -13,6 +13,18 @@ public class CompassTests
     }
 
     [Test]
+    [TestCase(Description = "Rotating Right from North direction returns Point.East")]
+    public void Rotate_NorthAndRight_ReturnsEast()
+    {
+        Compass compass = new Compass(Point.North);
+        Point startPoint = Point.North;
+        Direction direction = Direction.Right;
+
+        Point result = compass.Rotate(startPoint, direction);
+        Assert.That(result, Is.EqualTo(Point.East));
+    }
+
+    [Test]
     [TestCase(Description = "Rotating Right from all cardinal points")]
     public void AllPointsRight_ReturnsCorrectPoints()
     {
@@ -23,6 +35,20 @@ public class CompassTests
             Assert.That(compass.Rotate(Point.East, Direction.Right), Is.EqualTo(Point.South));
             Assert.That(compass.Rotate(Point.South, Direction.Right), Is.EqualTo(Point.West));
             Assert.That(compass.Rotate(Point.West, Direction.Right), Is.EqualTo(Point.North));
+        });
+    }
+
+    [Test]
+    [TestCase(Description = "Rotating Left from all cardinal points")]
+    public void AllPointsLeft_ReturnsCorrectPoints()
+    {
+        Compass compass = new Compass(Point.North);
+        Assert.Multiple(() =>
+        {
+            Assert.That(compass.Rotate(Point.North, Direction.Left), Is.EqualTo(Point.West));
+            Assert.That(compass.Rotate(Point.East, Direction.Left), Is.EqualTo(Point.North));
+            Assert.That(compass.Rotate(Point.South, Direction.Left), Is.EqualTo(Point.East));
+            Assert.That(compass.Rotate(Point.West, Direction.Left), Is.EqualTo(Point.South));
         });
     }
 }
